@@ -3,7 +3,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-cogs"></i> {{ $pageTitle }}</h1>
+            <h1><i class="fa fa-cogs"></i> {{ $subTitle }}</h1>
         </div>
     </div>
     @include('admin.partials.flash')
@@ -35,7 +35,9 @@
                                             value="{{ old('code', $attribute->code) }}"
                                     />
                                 </div>
+
                                 <input type="hidden" name="id" value="{{ $attribute->id }}">
+
                                 <div class="form-group">
                                     <label class="control-label" for="name">Name</label>
                                     <input
@@ -49,7 +51,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="frontend_type">Frontend Type</label>
-                                    @php $types = ['select' => 'Select Box', 'radio' => 'Radio Button', 'text' => 'Text Field', 'text_area' => 'Text Area']; @endphp
+
+                                    @php
+                                        $types = ['select' => 'Select Box', 'radio' => 'Radio Button', 'text' => 'Text Field', 'text_area' => 'Text Area'];
+                                    @endphp
+
                                     <select name="frontend_type" id="frontend_type" class="form-control">
                                         @foreach($types as $key => $label)
                                             @if ($attribute->frontend_type == $key)
