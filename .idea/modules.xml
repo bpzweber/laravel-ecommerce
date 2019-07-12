@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/laravel-ecommerce.iml" filepath="$PROJECT_DIR$/.idea/laravel-ecommerce.iml" />
+      <module fileurl="file://D:/00 Web-izrada/A-provisgraphic.com/provisgraphic-local/.idea/provisgraphic-local.iml" filepath="D:/00 Web-izrada/A-provisgraphic.com/provisgraphic-local/.idea/provisgraphic-local.iml" />
     </modules>
   </component>
 </project>
