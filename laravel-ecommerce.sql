@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2019 at 04:05 PM
+-- Generation Time: Sep 24, 2019 at 04:24 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -91,13 +91,15 @@ CREATE TABLE `attribute_values` (
 --
 
 INSERT INTO `attribute_values` (`id`, `attribute_id`, `value`, `price`, `created_at`, `updated_at`) VALUES
-(5, 1, 'small', NULL, '2019-07-02 10:51:02', '2019-07-02 10:51:02'),
-(6, 1, 'medium', NULL, '2019-07-02 10:51:02', '2019-07-02 10:51:02'),
-(7, 1, 'large', NULL, '2019-07-02 10:51:02', '2019-07-02 10:51:02'),
-(8, 2, 'black', NULL, '2019-07-02 10:51:02', '2019-07-02 10:51:02'),
+(5, 1, 'small', '0.99', '2019-07-02 10:51:02', '2019-07-02 10:51:02'),
+(6, 1, 'medium', '0.41', '2019-07-02 10:51:02', '2019-07-18 13:08:23'),
+(7, 1, 'large', '0.89', '2019-07-02 10:51:02', '2019-07-18 13:07:15'),
 (9, 2, 'blue', NULL, '2019-07-02 10:51:02', '2019-07-02 10:51:02'),
 (10, 2, 'red', NULL, '2019-07-02 10:51:03', '2019-07-02 10:51:03'),
-(11, 2, 'orange', NULL, '2019-07-02 10:51:03', '2019-07-02 10:51:03');
+(11, 2, 'orange', NULL, '2019-07-02 10:51:03', '2019-07-02 10:51:03'),
+(13, 1, 'extra large', '0.34', '2019-07-18 12:49:19', '2019-07-18 13:08:52'),
+(14, 2, 'yellow', NULL, '2019-07-19 05:19:45', '2019-07-19 05:19:45'),
+(17, 2, 'green', NULL, '2019-07-19 11:13:28', '2019-07-19 11:13:39');
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,6 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `parent_id`, `featured`, `menu`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'Root', 'root', 'This is the root category, don\'t delete this one', NULL, 0, 0, NULL, '2019-06-13 11:08:24', '2019-06-13 11:08:24'),
-(2, 'Adrienne Pacocha IV', 'adrienne-pacocha-iv', 'I shan\'t! YOU do it!--That I won\'t, then!--Bill\'s to go down--Here, Bill! the master says you\'re.', 1, 0, 1, NULL, '2019-06-13 11:08:25', '2019-06-13 11:08:25'),
 (3, 'Mrs. Maya Schmidt V', 'mrs-maya-schmidt-v', 'Queen in front of the trees behind him. \'--or next day, maybe,\' the Footman remarked, \'till.', 1, 0, 1, NULL, '2019-06-13 11:08:25', '2019-06-13 11:08:25'),
 (4, 'Rylan Terry', 'rylan-terry', 'I\'m never sure what I\'m going to do such a nice little dog near our house I should frighten them.', 1, 0, 1, NULL, '2019-06-13 11:08:25', '2019-06-13 11:08:25'),
 (5, 'Dr. Scottie Lemke DDS', 'dr-scottie-lemke-dds', 'Dormouse shook itself, and began to repeat it, but her head pressing against the roof of the.', 1, 0, 1, NULL, '2019-06-13 11:08:25', '2019-06-13 11:08:25'),
@@ -133,7 +134,8 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `parent_id`, `fea
 (8, 'Meggie Grant', 'meggie-grant', 'Alice. \'I\'ve tried every way, and then at the end of every line: \'Speak roughly to your places!\'.', 1, 0, 1, NULL, '2019-06-13 11:08:25', '2019-06-13 11:08:25'),
 (9, 'Hester Williamson', 'hester-williamson', 'Edgar Atheling to meet William and offer him the crown. William\'s conduct at first she would feel.', 1, 0, 1, NULL, '2019-06-13 11:08:25', '2019-06-13 11:08:25'),
 (10, 'Dr. Flavie Stehr Jr.', 'dr-flavie-stehr-jr', 'Alice thought to herself, \'I don\'t much care where--\' said Alice. \'That\'s very curious!\' she.', 1, 0, 1, NULL, '2019-06-13 11:08:25', '2019-06-13 11:08:25'),
-(11, 'Jerrod Kuhic', 'jerrod-kuhic', 'King. \'Nothing whatever,\' said Alice. \'Who\'s making personal remarks now?\' the Hatter hurriedly.', 1, 0, 1, 'categories/7rULWHnOrDvMisrzWD5qniP3N.jpg', '2019-06-13 11:08:25', '2019-07-12 09:45:43');
+(11, 'Jerrod Kuhic', 'jerrod-kuhic', 'King. \'Nothing whatever,\' said Alice. \'Who\'s making personal remarks now?\' the Hatter hurriedly.', 1, 0, 1, 'categories/7rULWHnOrDvMisrzWD5qniP3N.jpg', '2019-06-13 11:08:25', '2019-07-12 09:45:43'),
+(12, 'Cat55', 'cat55', 'testtewst', 10, 1, 1, 'categories/5eU7OGM3CJiYVRGwZJYv8agnD.jpg', '2019-09-24 12:13:51', '2019-09-24 12:14:32');
 
 -- --------------------------------------------------------
 
@@ -191,7 +193,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'site_name', 'test0', NULL, '2019-06-10 09:54:41');
+(1, 'site_name', 'E-Commerce2', NULL, '2019-09-24 12:18:41'),
+(2, 'site_title', 'Some title', NULL, '2019-09-24 12:19:55');
 
 -- --------------------------------------------------------
 
@@ -288,13 +291,13 @@ ALTER TABLE `attributes`
 -- AUTO_INCREMENT for table `attribute_values`
 --
 ALTER TABLE `attribute_values`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -306,7 +309,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
