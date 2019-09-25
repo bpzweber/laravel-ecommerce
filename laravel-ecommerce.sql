@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2019 at 04:24 PM
+-- Generation Time: Sep 25, 2019 at 04:08 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -69,7 +69,8 @@ CREATE TABLE `attributes` (
 
 INSERT INTO `attributes` (`id`, `code`, `name`, `frontend_type`, `is_filterable`, `is_required`, `created_at`, `updated_at`) VALUES
 (1, 'size', 'Size', 'select', 1, 1, '2019-07-02 10:50:49', '2019-07-02 10:50:49'),
-(2, 'color', 'Color', 'select', 1, 1, '2019-07-02 10:50:49', '2019-07-02 10:50:49');
+(2, 'color', 'Color', 'select', 1, 1, '2019-07-02 10:50:49', '2019-07-02 10:50:49'),
+(4, 'test', 'Test2', 'select', 1, 1, '2019-09-24 12:39:07', '2019-09-24 12:39:07');
 
 -- --------------------------------------------------------
 
@@ -99,7 +100,23 @@ INSERT INTO `attribute_values` (`id`, `attribute_id`, `value`, `price`, `created
 (11, 2, 'orange', NULL, '2019-07-02 10:51:03', '2019-07-02 10:51:03'),
 (13, 1, 'extra large', '0.34', '2019-07-18 12:49:19', '2019-07-18 13:08:52'),
 (14, 2, 'yellow', NULL, '2019-07-19 05:19:45', '2019-07-19 05:19:45'),
-(17, 2, 'green', NULL, '2019-07-19 11:13:28', '2019-07-19 11:13:39');
+(17, 2, 'green', NULL, '2019-07-19 11:13:28', '2019-07-19 11:13:39'),
+(19, 4, 'test5', '0.50', '2019-09-24 12:39:26', '2019-09-24 12:39:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -160,7 +177,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_06_07_135550_create_settings_table', 2),
 (5, '2019_06_11_135844_create_categories_table', 3),
 (9, '2019_07_02_093438_create_attributes_table', 4),
-(10, '2019_07_02_121301_create_attribute_values_table', 5);
+(10, '2019_07_02_121301_create_attribute_values_table', 5),
+(11, '2019_09_25_120307_create_brands_table', 6);
 
 -- --------------------------------------------------------
 
@@ -239,6 +257,12 @@ ALTER TABLE `attribute_values`
   ADD KEY `attribute_values_attribute_id_foreign` (`attribute_id`);
 
 --
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -285,13 +309,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `attributes`
 --
 ALTER TABLE `attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `attribute_values`
 --
 ALTER TABLE `attribute_values`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -303,7 +333,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `settings`
